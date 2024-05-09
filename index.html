@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+    <title>Intro component with sign up form</title>
+
+</head>
+
+<body>
+    
+    <main>
+
+        <div class="wrapper">
+
+            <div class="col-1">
+                <h1>Learn to code by watching others</h1>
+                <p>See how experienced developers solve problems in real-time. Watching scripted tutorials is great 
+                    but understanding how developers think is invaluable.</p>
+            </div>
+
+            <div class="col-2">
+                <div class="trial-bx">
+                    <h2>
+                        <p> <a>Try it free 7 days</a> then $20/mo. thereafter</p>
+                    </h2>
+                </div>
+
+                <form id="myForm">
+                    <div class="name-bx">
+                        <input type="text" name="fname" id="fname" placeholder="First Name">
+                        <img src="images/icon-error.svg" alt="error" id="name_error_img">
+                    </div>
+
+                    <div class="lastname-bx">
+                        <input type="text" name="lname" id="lname" placeholder="Last Name (Optional)">
+                    </div>
+
+                    <div class="email-bx">
+                        <input type="email" name="email" id="email" placeholder="Email Address">
+                        <img src="images/icon-error.svg" alt="error img" id="email_error_img">
+                    </div>
+
+                    <div class="password-bx">
+                        <input type="password" name="password" id="password" placeholder="Password">
+                        <img src="images/icon-error.svg" alt="error img" id="password_error_img">
+                    </div>
+
+                    <button onclick="return displayError(event)">CLAIM YOUR FREE TRIAL</button>
+
+                    <p>By clicking the button, you are agreeing to our <a>Terms and Services </a></p>
+                </form>
+            </div>
+
+        </div>
+
+    </main>
+
+
+<script>
+
+function displayError(event) {
+    event.preventDefault();
+
+    let firstNameVal = document.getElementById('fname').value;
+    let emailVal = document.getElementById('email').value;
+    let passwordVal = document.getElementById('password').value;
+    let nameErrorImg = document.getElementById('name_error_img');
+    let emailErrorImg = document.getElementById('email_error_img');
+    let passwordErrorImg = document.getElementById('password_error_img');
+    let form = document.getElementById('myForm')
+
+    if (firstNameVal == '') {
+        nameErrorImg.style.visibility = "visible";
+    } else {
+        nameErrorImg.style.visibility = "hidden";
+    }
+
+    if (emailVal == '') {
+        emailErrorImg.style.visibility = "visible";
+    } else {
+        emailErrorImg.style.visibility = "hidden";
+    }
+
+    if (passwordVal == '') {
+        passwordErrorImg.style.visibility = "visible";
+    } else {
+        passwordErrorImg.style.visibility = "hidden";
+    }
+
+    // Check if all fields are filled, then submit the form
+    if (firstNameVal !== '' && emailVal !== '' && passwordVal !== '') {
+        document.getElementById('myForm').submit(); // Submit the form
+    }
+}
+
+</script>
+
+
+</body>
+
+</html>
